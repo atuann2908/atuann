@@ -77,7 +77,7 @@ page = st.sidebar.radio(
 
 # Nội dung từng trang
 if page == "🏠 Trang Chủ":
-    st.title("Hệ Thống Quản Lí Giáo Dụt 🎓")
+    st.title("Hệ Thống Quản Lí Giáo Dục 🎓")
     st.markdown("""
     **Xin chào!**   
     Đây là hệ thống quản lí giáo dục dành cho giáo viên, phụ huynh và học sinh.
