@@ -192,7 +192,7 @@ elif page == "🔑Quản Trị Viên":
 
 elif page == "👨‍🏫 Giáo Viên":
     if st.session_state.get('role') != 'teacher':
-        st.title("Vui lòng đăng nhập:")
+        st.title("👨‍🏫 Giáo Viên")
         username = st.text_input("Tên đăng nhập")
         password = st.text_input("Mật khẩu", type="password")
         if st.button("Đăng nhập"):
@@ -336,7 +336,7 @@ elif page == "👨‍🏫 Giáo Viên":
                 st.info("Không có môn học để xóa.")
 elif page == "🧑‍💼 Phụ Huynh":
     if st.session_state.get('role') != 'parent':
-        st.title("Vui lòng đăng nhập:")
+        st.title("🧑‍💼 Phụ Huynh")
         username = st.text_input("Tên đăng nhập")
         password = st.text_input("Mật khẩu", type="password")
         if st.button("Đăng nhập"):
@@ -354,7 +354,7 @@ elif page == "🧑‍💼 Phụ Huynh":
             st.rerun()
 elif page == "🧑‍🎓 Học Sinh":
     if st.session_state.get('role') != 'student':
-        st.title("Vui lòng đăng nhập:")
+        st.title("🧑‍🎓 Học Sinh")
         username = st.text_input("Tên đăng nhập")
         password = st.text_input("Mật khẩu", type="password")
         if st.button("Đăng nhập"):
