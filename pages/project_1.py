@@ -2,6 +2,15 @@ import streamlit as st
 import pandas as pd
 import os
 
+hide_sidebar_style = """
+    <style>
+        /* Ẩn menu navigation mặc định (Home, pages/...) */
+        section[data-testid="stSidebarNav"] {display: none !important;}
+    </style>
+"""
+
+st.markdown(hide_sidebar_style, unsafe_allow_html=True)
+
 # Cấu hình
 st.set_page_config(page_title="Hệ Thống Quản Lí Giáo Dục", page_icon="🎓", layout="wide")
 TEACHER_FILE = "data/teachers.csv"
@@ -76,7 +85,7 @@ page = st.sidebar.radio(
 )
 
 # Nội dung từng trang
-if page == "🏠 Trang Chủ":
+if page =="🏠 Trang Chủ":
     st.title("Hệ Thống Quản Lí Giáo Dục 🎓")
     st.markdown("""
     **Xin chào!**   
@@ -325,3 +334,39 @@ elif page == "👨‍🏫 Giáo Viên":
                     st.rerun()
             else:
                 st.info("Không có môn học để xóa.")
+elif page == "🧑‍💼 Phụ Huynh":
+    if st.session_state.get('role') != 'parent':
+        st.title("Vui lòng đăng nhập:")
+        username = st.text_input("Tên đăng nhập")
+        password = st.text_input("Mật khẩu", type="password")
+        if st.button("Đăng nhập"):
+            if check_parent_login(username, password):
+                st.success("Đăng nhập thành công!")
+                st.session_state['role'] = 'parent'
+                st.rerun()
+            else:
+                st.error("Tên đăng nhập hoặc mật khẩu không đúng.")
+    else:
+        st.header("COMMING SOON...")
+        if st.button("Đăng xuất phụ huynh"):
+            st.session_state['role'] = None
+            st.success("Đã đăng xuất!")
+            st.rerun()
+elif page == "🧑‍🎓 Học Sinh":
+    if st.session_state.get('role') != 'student':
+        st.title("Vui lòng đăng nhập:")
+        username = st.text_input("Tên đăng nhập")
+        password = st.text_input("Mật khẩu", type="password")
+        if st.button("Đăng nhập"):
+            if check_student_login(username, password):
+                st.success("Đăng nhập thành công!")
+                st.session_state['role'] = 'student'
+                st.rerun()
+            else:
+                st.error("Tên đăng nhập hoặc mật khẩu không đúng.")
+    else:
+        st.header("COMMING SOON...")
+        if st.button("Đăng xuất học sinh"):
+            st.session_state['role'] = None
+            st.success("Đã đăng xuất!")
+            st.rerun()

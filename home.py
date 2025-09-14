@@ -4,8 +4,29 @@ st.set_page_config(page_title="ATuann", page_icon="👨‍💻", layout="wide")
 
 hide_sidebar_style = """
     <style>
+        /* Ẩn sidebar */
         [data-testid="stSidebar"] {display: none;}
         [data-testid="collapsedControl"] {display: none;}
+
+        /* Ẩn menu navigation mặc định (Home, pages/...) */
+        section[data-testid="stSidebarNav"] {display: none !important;}
+
+        /* Style cho nút bấm */
+        .stButton > button {
+            width: 100%;
+            height: 50px;
+            border-radius: 12px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .stButton > button:hover {
+            background-color: #45a049;
+            transform: scale(1.02);
+            transition: all 0.2s ease-in-out;
+        }
     </style>
 """
 st.markdown(hide_sidebar_style, unsafe_allow_html=True)
