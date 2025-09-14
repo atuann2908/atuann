@@ -18,11 +18,11 @@ st.write("🍌Vô vọc mấy cái t làm cho vui.")
 
 st.header("📌 Những thứ t làm")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3, gap="large")
 
 with col1:
     st.subheader("Hệ Thống Quản Lí Giáo Dục 🎓")
-    st.write("Đây là hệ thống quản lí giáo dục dành cho giáo viên, phụ huynh và học sinh..")
+    st.write("Đây là hệ thống quản lí giáo dục dành cho giáo viên, phụ huynh và học sinh.")
     if st.button("🔗 Xem dự án 1", use_container_width=True):
         st.switch_page("pages/project_1.py")
 
