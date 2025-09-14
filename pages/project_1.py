@@ -91,6 +91,10 @@ if page =="🏠 Trang Chủ":
     **Xin chào!**   
     Đây là hệ thống quản lí giáo dục dành cho giáo viên, phụ huynh và học sinh.
     Hãy chọn một mục từ menu bên trái để bắt đầu.
+    Test:
+    - Tài khoản giáo viên: teacher1 - teacher_1
+    - Tài khoản phụ huynh: PH1 - PH_1
+    - Tài khoản học sinh: HS1 - HS_1
     """)
 
 elif page == "🔑Quản Trị Viên":
